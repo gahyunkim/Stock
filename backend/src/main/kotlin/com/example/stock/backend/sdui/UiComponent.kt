@@ -67,7 +67,11 @@ data class UiVerticalList(
 data class UiGrid(
     val items: List<UiListItem>,
     val columns: Int = 2,
-) : UiComponent
+) : UiComponent {
+    init {
+        require(columns > 0) { "columns must be positive, was $columns" }
+    }
+}
 
 data class UiCarousel(
     val items: List<UiListItem>,
