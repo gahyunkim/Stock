@@ -29,7 +29,7 @@ class HomeViewModel(
     fun load() {
         viewModelScope.launch {
             _uiState.value = HomeUiState.Loading
-            _uiState.value = HomeUiState.Success(repository.fetchScreen(screenId = "home"))
+            _uiState.value = HomeUiState.Success(repository.fetchScreen(screenId = "lists"))
         }
     }
 }
