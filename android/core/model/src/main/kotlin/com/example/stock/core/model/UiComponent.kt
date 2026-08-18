@@ -45,3 +45,40 @@ data class UiButton(
 data class UiSpacer(
     val size: Int = 8,
 ) : UiComponent
+
+@Serializable
+@SerialName("image")
+data class UiImage(
+    val url: String,
+    val contentDescription: String? = null,
+) : UiComponent
+
+/** 리스트/그리드/캐러셀 컨테이너가 공통으로 쓰는 아이템 모델. UiComponent가 아니라 데이터 홀더다. */
+@Serializable
+data class UiListItem(
+    val imageUrl: String? = null,
+    val title: String,
+    val subtitle: String? = null,
+    val trailingText: String? = null,
+    val trailingCaption: String? = null,
+    val action: String? = null,
+)
+
+@Serializable
+@SerialName("vertical_list")
+data class UiVerticalList(
+    val items: List<UiListItem>,
+) : UiComponent
+
+@Serializable
+@SerialName("grid")
+data class UiGrid(
+    val items: List<UiListItem>,
+    val columns: Int = 2,
+) : UiComponent
+
+@Serializable
+@SerialName("carousel")
+data class UiCarousel(
+    val items: List<UiListItem>,
+) : UiComponent
