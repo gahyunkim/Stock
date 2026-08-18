@@ -52,12 +52,13 @@ description: 사용자가 Android Studio의 "Changes" 패널(또는 git add)로 
 
 ```bash
 git commit -m "$(cat <<'EOF'
-<타입>: <커밋 메시지>
-
-Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+<타입>: <커밋 메시지> (#이슈번호)
 EOF
 )"
 ```
+
+* `Co-Authored-By` 트레일러는 붙이지 않는다 (저장소 CLAUDE.md 규칙).
+* 제목 끝에는 항상 관련 이슈 번호를 `(#번호)`로 붙인다 (저장소 CLAUDE.md 규칙). 현재 브랜치명이 `feat-<번호>-...` 형식이면 그 번호를 쓰고, 알 수 없으면 사용자에게 물어본다.
 
 * 함께 포함된 staged 파일 목록도 간단히 보여줘서 사용자가 커밋 범위를 확인할 수 있게 한다.
 * 메시지가 애매하거나 변경 성격이 여러 가지로 섞여 있으면, 제시하기 전에 먼저 확인을 구하거나 그 점을 명시한다.
