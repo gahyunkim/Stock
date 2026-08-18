@@ -3,7 +3,7 @@ package com.example.stock.feature.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.stock.core.model.UiScreen
-import com.example.stock.core.network.FakeSduiRepository
+import com.example.stock.core.network.RemoteSduiRepository
 import com.example.stock.core.network.SduiRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -16,7 +16,7 @@ sealed interface HomeUiState {
 }
 
 class HomeViewModel(
-    private val repository: SduiRepository = FakeSduiRepository(),
+    private val repository: SduiRepository = RemoteSduiRepository(),
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow<HomeUiState>(HomeUiState.Loading)
