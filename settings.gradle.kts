@@ -24,4 +24,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "Stock"
 include(":app")
- 
+include(":core:model")
+include(":core:network")
+include(":core:designsystem")
+include(":feature:sdui-renderer")
+include(":feature:home")
